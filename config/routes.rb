@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :months, only: [:create, :index, :show]
+    resources :days, only: [:create, :index, :show]
   end
 
 end

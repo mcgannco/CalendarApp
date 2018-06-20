@@ -10,17 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620193411) do
+ActiveRecord::Schema.define(version: 20180620202039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "days", force: :cascade do |t|
+    t.integer "month_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "num", null: false
+  end
+
   create_table "months", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "name", null: false
     t.integer "year", null: false
-    t.index ["name", "year"], name: "index_months_on_name_and_year", unique: true
+    t.integer "num_days", null: false
+    t.string "name", null: false
   end
 
 end

@@ -4,10 +4,16 @@ class Api::MonthsController < ApplicationController
   end
 
   def show
-    @month = Month.find
+    @month = Month.find(params[:id])
+    render "api/months/show"
   end
 
   def create
+    @month = Month.new(month_params)
+    if @month.save
+    else
+      render json: @month.errors.full_messages, status: 422
+    end
   end
 
   private
