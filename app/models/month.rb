@@ -14,4 +14,6 @@ class Month < ApplicationRecord
   validates :name, :year, :num_days, presence: true
   validates :name, uniqueness: { scope: :year }
   validates_inclusion_of :num_days, :in => 1..31
+
+  has_many :days
 end

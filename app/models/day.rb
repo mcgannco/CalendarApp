@@ -12,4 +12,6 @@
 class Day < ApplicationRecord
   validates :month_id, :num, presence: true
   validates :num, uniqueness: { scope: :month_id }
+
+  belongs_to :month
 end
