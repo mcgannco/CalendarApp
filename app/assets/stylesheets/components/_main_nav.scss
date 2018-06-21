@@ -1,0 +1,169 @@
+.main-nav {
+  display: flex;
+  padding: 10px 0px;
+  border-bottom: 3px solid #F5F5F5;
+  font-family: 'Roboto', 'Noto', sans-serif;
+  justify-content: center;
+}
+
+.main-nav span {
+  font-size: 18px;
+  color: #989898;
+}
+
+.main-nav li .tooltiptext {
+  visibility: hidden;
+  background-color: #696969;
+  color: #fff;
+  text-align: center;
+  padding: 9px 7px;
+  border-radius: 4px;
+  position: absolute;
+  margin-top: 30px;
+  z-index: 1;
+  font-size: 12px;
+  font-weight: 100;
+  opacity: 0;
+  transition: visibility 0s .5s, opacity .5s linear;
+}
+
+.main-nav li:hover .tooltiptext {
+  transition-delay: 1s;
+  background-color: #696969;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.main-nav li .hometext {
+  visibility: hidden;
+  background-color: #f8f8f8;
+  color: black;
+  text-align: center;
+  padding: 2px 4px;
+  position: absolute;
+  margin-top: 30px;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 300;
+  opacity: 0;
+  transition: visibility 0s .5s, opacity .5s linear;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.main-nav li:hover .hometext {
+  transition-delay: 1s;
+  background-color: #f8f8f8;
+  color: black;
+  visibility: visible;
+  opacity: 1;
+}
+
+.main-nav button .searchtiptext {
+  visibility: hidden;
+  background-color: #696969;
+  color: #fff;
+  text-align: center;
+  padding: 9px 7px;
+  border-radius: 4px;
+  position: absolute;
+  margin-top: 33px;
+  z-index: 1;
+  font-size: 12px;
+  font-weight: 100;
+  opacity: 0;
+  transition: visibility 0s .5s, opacity .5s linear;
+}
+
+.main-nav button:hover .searchtiptext {
+  transition-delay: 1s;
+  background-color: #696969;
+  visibility: visible;
+  opacity: 1;
+}
+
+.left-nav {
+  display: flex;
+  align-items: center;
+}
+
+.left-nav > ul {
+  display: flex;
+  align-items: center;
+  width: 55%;
+  justify-content: flex-end;
+}
+
+.left-nav {
+  width: 100%;
+}
+
+.left-nav > ul > li {
+	cursor: pointer;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+	padding: 7px 9px;
+	transition: background-color 0.3s;
+}
+
+.left-nav li {
+  display: flex;
+  align-items: center;
+}
+
+.left-nav img {
+  margin-right: 5px;
+}
+
+.left-nav p {
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.options {
+  display: flex;
+  width: 45%;
+  justify-content: flex-end;
+}
+
+.options button {
+  margin: 0px 20px;
+}
+
+.options button:hover {
+  color: grey;
+}
+
+.options a:hover {
+  color: grey;
+}
+
+.user-profile-div {
+  margin-right: 10px;
+  padding: 2px 9px;
+	cursor: pointer;
+  width: 3.8rem;
+  display: flex;
+}
+
+.user-profile-div span{
+  background: #599732;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 5px 0px;
+}
+
+#nav-button:active {
+  background: #ccc;
+  border-radius: 20px;
+}
+
+#nav-button {
+  width: 18px;
+  display: flex;
+  justify-content: center;
+}

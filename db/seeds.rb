@@ -8,7 +8,10 @@
 
     Month.destroy_all
     Day.destroy_all
+    User.destroy_all
 
+    demoUser = User.create!(username: "DemoUser", password: 123456)
+    
     January = Month.create!(name: "January", num_days: 31, year: 2018)
     (1..January.num_days).each do |day|
       Day.create!(num: day, month_id: January.id)

@@ -1,4 +1,9 @@
 import React from 'react';
+import {AuthRoute, ProtectedRoute} from '../util/route_util';
+import LoginFormContainer from './session/login_form_container';
+import SignupFormContainer from './session/sign_up_form_container';
+import NavBarContainer from './navbar/nav_bar_container';
+
 import {
   Route,
   Redirect,
@@ -11,8 +16,10 @@ import HomeContainer from './home/home_container';
 
 const App = () => (
   <div>
-    <h1>Calendar</h1>
+    <NavBarContainer />
     <Switch>
+      <AuthRoute exact path="/signin" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route path="/" component={HomeContainer} />
     </Switch>
   </div>
