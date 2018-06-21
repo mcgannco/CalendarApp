@@ -8,6 +8,8 @@ class CalendarIndexItem extends React.Component {
     this.weekTwo = this.weekTwo.bind(this)
     this.weekThree = this.weekThree.bind(this)
     this.weekFour = this.weekFour.bind(this)
+    this.weekFive = this.weekFive.bind(this)
+    this.weekSix = this.weekSix.bind(this)
   }
 
   weekOne() {
@@ -42,6 +44,22 @@ weekFour() {
  return row;
 }
 
+weekFive() {
+ let row = []
+ for (let i = 22; i < 29; i++) {
+   row.push(<td key={i}>{i}</td>)
+ }
+ return row;
+}
+
+weekSix() {
+ let row = []
+ for (let i = 22; i < 29; i++) {
+   row.push(<td key={i}>{i}</td>)
+ }
+ return row;
+}
+
   render() {
     if (!this.props.currentUser) {
       return null;
@@ -51,6 +69,8 @@ weekFour() {
       let week2 = this.weekTwo();
       let week3 = this.weekThree();
       let week4 = this.weekFour();
+      let week5 = this.weekFive();
+      let week6 = this.weekSix();
 
       return(
         <li>
@@ -79,6 +99,12 @@ weekFour() {
                </tr>
                <tr>
                   {week4}
+               </tr>
+               <tr>
+                  {week5}
+               </tr>
+               <tr>
+                  {week6}
                </tr>
              </tbody>
            </table>
