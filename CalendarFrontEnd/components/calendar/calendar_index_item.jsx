@@ -4,74 +4,71 @@ import { Link } from 'react-router-dom';
 class CalendarIndexItem extends React.Component {
   constructor(props) {
     super(props)
-    this.weekOne = this.weekOne.bind(this)
-    this.weekTwo = this.weekTwo.bind(this)
-    this.weekThree = this.weekThree.bind(this)
-    this.weekFour = this.weekFour.bind(this)
-    this.weekFive = this.weekFive.bind(this)
-    this.weekSix = this.weekSix.bind(this)
+    this.state = {
+      startingPoints: {'January': 2, 'February': 5, 'March': 5,
+      'April': 1, 'May': 3, 'June': 6, 'July': 1, 'August': 4, 'September': 7,
+    'October': 2, 'November': 5, 'December': 7},
+    endingPoints: {'January': 32, 'February': 32, 'March': 35,
+    'April': 30, 'May': 33, 'June': 35, 'July': 31, 'August': 34, 'September': 36,
+  'October': 32, 'November': 34, 'December': 37}
+
+    }
+    this.drawCal = this.drawCal.bind(this)
   }
 
-  weekOne() {
-   let row = []
-   for (let i = 1; i < 8; i++) {
-     row.push(<td key={i}>{i}</td>)
+  drawCal() {
+    let month = this.props.month.name
+    let days = this.props.month.days
+    let start = this.state.startingPoints[month]
+    let end = this.state.endingPoints[month]
+
+    let hash = {"one": [], "two": [], "three": [], "four": [], "five": [], "six": []}
+    for (let i = 1; i < 43; i++) {
+    let  num = days[i - start];
+      if (num) {
+        num = num.num
+      }
+
+      if (i < start) {
+        hash["one"].push(<td></td>)
+      } else if (i > end) {
+        if (i < 36) {
+          hash["five"].push(<td></td>)
+        } else {
+          hash["six"].push(<td></td>)
+        }
+      } else {
+        if (i < 8) {
+          hash["one"].push(<td>{num}</td>)
+        } else if (i >= 8 && i < 15) {
+          hash["two"].push(<td>{num}</td>)
+        } else if (i >= 15 && i < 22) {
+          hash["three"].push(<td>{num}</td>)
+        } else if (i >= 22 && i < 29) {
+          hash["four"].push(<td>{num}</td>)
+        } else if (i >= 29 && i < 36) {
+          hash["five"].push(<td>{num}</td>)
+        } else if (i >= 36 && i < 43) {
+          hash["six"].push(<td>{num}</td>)
+        }
+      }
    }
-   return row;
- }
 
- weekTwo() {
-  let row = []
-  for (let i = 8; i < 15; i++) {
-    row.push(<td key={i}>{i}</td>)
-  }
-  return row;
-}
-
-weekThree() {
- let row = []
- for (let i = 15; i < 22; i++) {
-   row.push(<td key={i}>{i}</td>)
+   return hash;
  }
- return row;
-}
-
-weekFour() {
- let row = []
- for (let i = 22; i < 29; i++) {
-   row.push(<td key={i}>{i}</td>)
- }
- return row;
-}
-
-weekFive() {
- let row = []
- for (let i = 22; i < 29; i++) {
-   row.push(<td key={i}>{i}</td>)
- }
- return row;
-}
-
-weekSix() {
- let row = []
- for (let i = 22; i < 29; i++) {
-   row.push(<td key={i}>{i}</td>)
- }
- return row;
-}
 
   render() {
     if (!this.props.currentUser) {
       return null;
     }
       let {month} = this.props;
-      let week1 = this.weekOne();
-      let week2 = this.weekTwo();
-      let week3 = this.weekThree();
-      let week4 = this.weekFour();
-      let week5 = this.weekFive();
-      let week6 = this.weekSix();
-
+      let weeks = this.drawCal();
+      let week1 = weeks["one"]
+      let week2 = weeks["two"]
+      let week3 = weeks["three"]
+      let week4 = weeks["four"]
+      let week5 = weeks["five"]
+      let week6 = weeks["six"]
       return(
         <li>
           <div className="month-container">
@@ -89,7 +86,7 @@ weekSix() {
                </thead>
              <tbody>
                <tr>
-                  {week1}
+                 {week1}
                </tr>
                <tr>
                   {week2}

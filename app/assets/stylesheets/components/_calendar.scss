@@ -1,6 +1,6 @@
 .months-container {
   display: flex;
-  font-family: 'Roboto', sans-serif; 
+  font-family: 'Roboto', sans-serif;
 }
 
 .months-container ul {
@@ -23,6 +23,7 @@
 .month-container h1 {
   display: flex;
   justify-content: center;
+  color: grey;
 }
 
 .month-container table thead th {
@@ -30,8 +31,9 @@
   border:1px solid;
   padding:1px;
   text-align: center;
-  background: lightgrey;
+  background: #87CEFA;
   width: 10px;
+  color: white;
 }
 
 .month-container td {
@@ -41,4 +43,5 @@
   text-align: center;
   cursor: pointer;
   width: 50px;
+  height: 10px;
 }
