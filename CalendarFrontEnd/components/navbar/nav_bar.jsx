@@ -36,7 +36,7 @@ class NavBar extends React.Component {
           <nav className="left-nav">
             <ul>
               <li>
-                <Link to="/"><p>Calendar App</p></Link>
+                <Link to="/"><p>Calendar App 2018</p></Link>
                 <span><i className="far fa-calendar-alt"></i>
                 </span>
                 <nav className="hometext">Calender Home</nav>

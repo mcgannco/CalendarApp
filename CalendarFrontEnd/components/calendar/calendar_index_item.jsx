@@ -25,31 +25,35 @@ class CalendarIndexItem extends React.Component {
     let hash = {"one": [], "two": [], "three": [], "four": [], "five": [], "six": []}
     for (let i = 1; i < 43; i++) {
     let  num = days[i - start];
+    let  day = days[i];
       if (num) {
         num = num.num
       }
+      if (day) {
+        day = day.id
+      }
 
       if (i < start) {
-        hash["one"].push(<td></td>)
+        hash["one"].push(<td id={`${month}:${i}`} key={`${month}:${i}`}></td>)
       } else if (i > end) {
         if (i < 36) {
-          hash["five"].push(<td></td>)
+          hash["five"].push(<td id={`${month}:${i}`} key={`${month}:${i}`}></td>)
         } else {
-          hash["six"].push(<td></td>)
+          hash["six"].push(<td id={`${month}:${i}`} key={`${month}:${i}`}></td>)
         }
       } else {
         if (i < 8) {
-          hash["one"].push(<td>{num}</td>)
+          hash["one"].push(<td id={day} key={day}>{num}</td>)
         } else if (i >= 8 && i < 15) {
-          hash["two"].push(<td>{num}</td>)
+          hash["two"].push(<td id={day} key={day}>{num}</td>)
         } else if (i >= 15 && i < 22) {
-          hash["three"].push(<td>{num}</td>)
+          hash["three"].push(<td id={day} key={day}>{num}</td>)
         } else if (i >= 22 && i < 29) {
-          hash["four"].push(<td>{num}</td>)
+          hash["four"].push(<td id={day} key={day}>{num}</td>)
         } else if (i >= 29 && i < 36) {
-          hash["five"].push(<td>{num}</td>)
+          hash["five"].push(<td id={day} key={day}>{num}</td>)
         } else if (i >= 36 && i < 43) {
-          hash["six"].push(<td>{num}</td>)
+          hash["six"].push(<td id={day} key={day}>{num}</td>)
         }
       }
    }
@@ -72,39 +76,40 @@ class CalendarIndexItem extends React.Component {
       return(
         <li>
           <div className="month-container">
-            <h1>{month.name}</h1>
-
-              <table>
-               <thead>
-                 <th>Sunday</th>
-                 <th>Monday</th>
-                 <th>Tuesday</th>
-                 <th>Wednesday</th>
-                 <th>Thursday</th>
-                 <th>Friday</th>
-                 <th>Saturday</th>
-               </thead>
-             <tbody>
-               <tr>
-                 {week1}
-               </tr>
-               <tr>
-                  {week2}
-               </tr>
-               <tr>
-                  {week3}
-               </tr>
-               <tr>
-                  {week4}
-               </tr>
-               <tr>
-                  {week5}
-               </tr>
-               <tr>
-                  {week6}
-               </tr>
-             </tbody>
-           </table>
+            <Link to={`/${month.name}${month.year}`}>
+              <h1>{month.name}</h1>
+                <table>
+                 <thead>
+                   <th>Sunday</th>
+                   <th>Monday</th>
+                   <th>Tuesday</th>
+                   <th>Wednesday</th>
+                   <th>Thursday</th>
+                   <th>Friday</th>
+                   <th>Saturday</th>
+                 </thead>
+               <tbody>
+                 <tr>
+                   {week1}
+                 </tr>
+                 <tr>
+                    {week2}
+                 </tr>
+                 <tr>
+                    {week3}
+                 </tr>
+                 <tr>
+                    {week4}
+                 </tr>
+                 <tr>
+                    {week5}
+                 </tr>
+                 <tr>
+                    {week6}
+                 </tr>
+               </tbody>
+              </table>
+            </Link>
           </div>
         </li>
       )
