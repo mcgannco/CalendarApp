@@ -5,11 +5,12 @@ import configureStore from './store/store';
 
 // testing
 import { signup, login, logout } from './actions/session_actions';
-import { requestAllMonths } from './actions/calendar_actions';
+import { requestAllMonths, requestSingleMonth } from './actions/calendar_actions';
 window.signup = signup;
 window.login = login;
 window.logout = logout;
 window.requestAllMonths = requestAllMonths;
+window.requestSingleMonth = requestSingleMonth;
 //
 
 

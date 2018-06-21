@@ -76,7 +76,7 @@ class CalendarIndexItem extends React.Component {
       return(
         <li>
           <div className="month-container">
-            <Link to={`/${month.name}${month.year}`}>
+            <Link to={`/month/${month.id}`}>
               <h1>{month.name}</h1>
                 <table>
                  <thead>

@@ -4,7 +4,7 @@ class Api::MonthsController < ApplicationController
   end
 
   def show
-    @month = Month.find(params[:id])
+    @month = Month.find(params[:id]).includes(:days)
     render "api/months/show"
   end
 
