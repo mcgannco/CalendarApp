@@ -75,7 +75,7 @@ class SessionForm extends React.Component {
           </div>
 
           <div className={errors_hash["Invalid password/username"] || errors_hash["Password is too short (minimum is 6 characters)"] ? "sessionForm-input-errors" : "sessionForm-input"}>
-            <input id="password" placeholder= "Enter Password" onChange={this.updateInput} value={this.state.password}></input>
+            <input type="password" id="password" placeholder= "Enter Password" onChange={this.updateInput} value={this.state.password}></input>
             <p className="error-messages">{password_errors}</p>
           </div>
           <button onClick={this.handleSubmit}>{formName}</button>

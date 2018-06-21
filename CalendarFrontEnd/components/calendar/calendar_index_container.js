@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
-import Home from './home';
+import CalendarIndex from './calendar_index';
 
 const msp = state => {
   return({
@@ -10,8 +9,7 @@ const msp = state => {
 
 const mdp = dispatch => {
   return({
-    logout: () => dispatch(logout())
   })
 };
 
-export default connect(msp, mdp)(Home);
+export default connect(msp, mdp)(CalendarIndex);

@@ -12,7 +12,7 @@ import {
   HashRouter
 } from 'react-router-dom';
 
-import HomeContainer from './home/home_container';
+import CalendarIndexContainer from './calendar/calendar_index_container';
 
 const App = () => (
   <div>
@@ -20,7 +20,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/signin" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route path="/" component={HomeContainer} />
+      <Route path="/" component={CalendarIndexContainer} />
     </Switch>
   </div>
 );
