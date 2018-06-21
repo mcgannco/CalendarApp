@@ -20,7 +20,7 @@ class NavBar extends React.Component {
     let userDropDown;
     if (!currentUser) {
       loggedin = <div className="options">
-        <Link to='/signin'>Signin</Link>
+        <Link to='/signin'>Sign In</Link>
         <button onClick={this.demo}>Demo</button>
       </div>
       } else {
@@ -28,6 +28,7 @@ class NavBar extends React.Component {
           <span>
             {currentUser.username}
           </span>
+          <button onClick={() => this.props.logout()}>Sign Out</button>
         </div>
       }
       return(

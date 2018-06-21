@@ -122,6 +122,10 @@
   margin-right: 10px;
 }
 
+.left-nav svg {
+  color:#87CEFA;
+}
+
 .options {
   display: flex;
   width: 45%;
@@ -141,20 +145,23 @@
 }
 
 .user-profile-div {
-  margin-right: 10px;
-  padding: 2px 9px;
-	cursor: pointer;
-  width: 3.8rem;
   display: flex;
+  width: 45%;
+  justify-content: flex-end;
 }
 
 .user-profile-div span{
-  background: #599732;
-  width: 2rem;
+  background: #87CEFA;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   color: white;
-  padding: 5px 0px;
+  padding: 5px 5px;
+  font-size: 16px;
+}
+
+.user-profile-div button {
+  margin: 0px 20px;
 }
 
 #nav-button:active {

@@ -46,13 +46,14 @@ class SessionForm extends React.Component {
       otherForm = "Signup"
     }
     return(
-      <div>
-        <h1>hello</h1>
-        <h3>{formName}</h3>
-        <Link to={altLink}>{otherForm}</Link>
-        <input id="username" onChange={this.updateInput} value={this.state.username}></input>
-        <input id="password" onChange={this.updateInput} value={this.state.password}></input>
-        <button onClick={this.handleSubmit}>{formName}</button>
+      <div className="session-container">
+        <div className="session">
+          <h3>{formName}</h3>
+          <input id="username" placeholder= "Enter Username" onChange={this.updateInput} value={this.state.username}></input>
+          <input id="password" placeholder= "Enter Password" onChange={this.updateInput} value={this.state.password}></input>
+          <button onClick={this.handleSubmit}>{formName}</button>
+          <Link to={altLink}>{otherForm} instead</Link>
+        </div>
       </div>
     )
   }
