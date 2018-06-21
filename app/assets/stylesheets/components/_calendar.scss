@@ -1,0 +1,18 @@
+.months-container {
+  display: flex;
+}
+
+.months-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.months-container ul li {
+  width: calc(25% - 40px);
+  background: red;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+}

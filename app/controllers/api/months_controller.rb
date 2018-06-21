@@ -1,6 +1,6 @@
 class Api::MonthsController < ApplicationController
   def index
-    @months = Month.all
+    @months = Month.all.includes(:days)
   end
 
   def show
