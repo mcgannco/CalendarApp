@@ -31,7 +31,7 @@ class CalendarShow extends React.Component {
             </div>
 
             <div className="events-container">
-              <h1>{currentUser.username} Events {month.name} {month.year}</h1>
+              <h1>{currentUser.username}s Events {month.name} {month.year}</h1>
             </div>
 
           </div>
