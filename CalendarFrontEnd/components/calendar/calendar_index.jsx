@@ -13,7 +13,7 @@ class CalendarIndex extends React.Component {
   }
 
   render() {
-    const { months, currentUser, requestAllMonths } = this.props;
+    const { months, currentUser } = this.props;
       return(
           <div className="months-container">
             <ul>

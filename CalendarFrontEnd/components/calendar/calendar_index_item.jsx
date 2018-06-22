@@ -25,7 +25,7 @@ class CalendarIndexItem extends React.Component {
     let hash = {"one": [], "two": [], "three": [], "four": [], "five": [], "six": []}
     for (let i = 1; i < 43; i++) {
     let  num = days[i - start];
-    let  day = days[i];
+    let  day = days[i - start];
       if (num) {
         num = num.num
       }
@@ -57,7 +57,7 @@ class CalendarIndexItem extends React.Component {
         }
       }
    }
-   
+
    return hash;
  }
 
