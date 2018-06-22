@@ -16,4 +16,5 @@ class Month < ApplicationRecord
   validates_inclusion_of :num_days, :in => 1..31
 
   has_many :days
+  has_many :events
 end

@@ -75,11 +75,7 @@ class CalendarShowItem extends React.Component {
       let week6 = weeks["six"]
       return(
           <div className="individual-month-container">
-
-            <div>
-              <p>Create New Event</p>
               <h1>{month.name}</h1>
-            </div>
 
                 <table>
                  <thead>

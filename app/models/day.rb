@@ -14,4 +14,5 @@ class Day < ApplicationRecord
   validates :num, uniqueness: { scope: :month_id }
 
   belongs_to :month
+  has_many :events
 end
