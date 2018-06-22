@@ -21,7 +21,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/signin" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path='/month/:monthId' component={ CalendarShowContainer } />
+      <ProtectedRoute exact path='/month/:monthId' component={ CalendarShowContainer } />
       <Route path="/" component={CalendarIndexContainer} />
     </Switch>
   </div>

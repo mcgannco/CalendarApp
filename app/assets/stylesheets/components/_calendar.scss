@@ -143,3 +143,16 @@
   color: red;
   text-decoration: underline;
 }
+
+.main-logo {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  margin-top: 120px;
+}
+
+.main-logo svg {
+  font-size: 250px;
+  color: #87CEFA;
+}

@@ -14,6 +14,14 @@ class CalendarIndex extends React.Component {
 
   render() {
     const { months, currentUser, events } = this.props;
+    if (!currentUser) {
+      return <div className="main-logo">
+        <span>
+          <i className="far fa-calendar-alt">
+          </i>
+        </span>
+      </div>;
+    }
       return(
           <div className="months-container">
             <ul>

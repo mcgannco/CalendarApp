@@ -10,12 +10,12 @@ class CalendarShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestSingleMonth(this.props.match.params.monthId);
+    this.props.requestSingleMonth(this.props.match.params.monthId).then(this.props.requestAllEvents());
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.monthId !== nextProps.match.params.monthId) {
-      this.props.requestSingleMonth(nextProps.match.params.monthId);
+      this.props.requestSingleMonth(nextProps.match.params.monthId).then(this.props.requestAllEvents());
     }
   }
 

@@ -5,7 +5,11 @@ class Api::MonthsController < ApplicationController
 
   def show
     @month = Month.find(params[:id])
-    render "api/months/show"
+    if @month
+      render "api/months/show"
+    else
+      render json: ["Month not found"], status: 401
+    end
   end
 
   def create
