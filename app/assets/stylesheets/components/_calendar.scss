@@ -49,3 +49,58 @@
 .month-container td:hover {
   border:1px solid #87CEFA;
 }
+
+.calendar-show-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  flex-wrap: wrap;
+}
+
+.individual-month-container {
+  width: 100%;
+}
+
+.individual-month-container h1 {
+  display: flex;
+  justify-content: center;
+  color: grey;
+  font-size: 20px;
+}
+
+.individual-month-container table thead th {
+  font-size: 8px;
+  border:1px solid;
+  padding:1px;
+  text-align: center;
+  background: #87CEFA;
+  width: 10px;
+  color: white;
+}
+
+.individual-month-container td {
+  border:1px solid lightgrey;
+  font-size: 14px;
+  padding:10px 3px;
+  text-align: center;
+  cursor: pointer;
+  width: 80px;
+  height: 30px;
+}
+
+.individual-month-container td:hover {
+  border:1px solid #87CEFA;
+}
+
+.events-container {
+  border: 1px solid red;
+  width: 400px;
+}
+
+.events-container h1 {
+  display: flex;
+  justify-content: center;
+  color: #87CEFA;
+  font-size: 20px;
+}

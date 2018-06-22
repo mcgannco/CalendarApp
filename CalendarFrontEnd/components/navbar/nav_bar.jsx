@@ -1,6 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import {
+  Route,
+  Redirect,
+  Switch,
+  Link,
+  HashRouter,
+  withRouter
+} from 'react-router-dom';
 class NavBar extends React.Component {
 
   constructor(props) {
@@ -8,10 +14,15 @@ class NavBar extends React.Component {
     this.state = {
     }
     this.demo = this.demo.bind(this)
+    this.closeOut = this.closeOut.bind(this)
   }
 
   demo() {
     this.props.login({username: "DemoUser", password: 123456})
+  }
+
+  closeOut() {
+    this.props.logout().then(this.props.history.push('/'))
   }
 
   render() {
@@ -28,7 +39,7 @@ class NavBar extends React.Component {
           <span>
             {currentUser.username}
           </span>
-          <button onClick={() => this.props.logout()}>Sign Out</button>
+          <button onClick={this.closeOut}>Sign Out</button>
         </div>
       }
       return(
@@ -51,4 +62,4 @@ class NavBar extends React.Component {
   }
 
 
-export default NavBar;
+export default withRouter(NavBar);

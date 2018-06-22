@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router-dom';
+import CalendarShowItem from './calendar_show_item';
 
 class CalendarShow extends React.Component {
 
@@ -19,14 +20,21 @@ class CalendarShow extends React.Component {
   }
 
   render() {
-    let {month} = this.props
+    let {month, currentUser} = this.props
     if (!month) {
       return null;
     }
       return(
-          <div className="months-container">
-            <h1 onClick={this.test}>{month.name}</h1>
-        </div>
+          <div className="calendar-show-container">
+            <div className="calendar-show">
+                  <CalendarShowItem currentUser={currentUser} key={month.name} month={month}/>
+            </div>
+
+            <div className="events-container">
+              <h1>{currentUser.username} Events {month.name} {month.year}</h1>
+            </div>
+
+          </div>
       )
     }
   }
