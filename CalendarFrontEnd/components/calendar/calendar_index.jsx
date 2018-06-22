@@ -9,15 +9,15 @@ class CalendarIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestAllMonths()
+    this.props.requestAllMonths().then(this.props.requestAllEvents())
   }
 
   render() {
-    const { months, currentUser } = this.props;
+    const { months, currentUser, events } = this.props;
       return(
           <div className="months-container">
             <ul>
-              {months.map(month => <CalendarIndexItem currentUser={currentUser} key={month.name} month={month}/>)}
+              {months.map(month => <CalendarIndexItem events={events} currentUser={currentUser} key={month.name} month={month}/>)}
             </ul>
         </div>
       )

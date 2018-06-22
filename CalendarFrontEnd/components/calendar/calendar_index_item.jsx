@@ -19,8 +19,18 @@ class CalendarIndexItem extends React.Component {
   drawCal() {
     let month = this.props.month.name
     let days = this.props.month.days
+    let events = this.props.events
     let start = this.state.startingPoints[month]
     let end = this.state.endingPoints[month]
+    let eventHash = {};
+
+    for (let i = 0; i < events.length; i++) {
+      if (eventHash[events[i].day_id]) {
+        eventHash[events[i].day_id].push(events[i])
+      } else {
+        eventHash[events[i].day_id] = [events[i]]
+      }
+    }
 
     let hash = {"one": [], "two": [], "three": [], "four": [], "five": [], "six": []}
     for (let i = 1; i < 43; i++) {
@@ -43,17 +53,49 @@ class CalendarIndexItem extends React.Component {
         }
       } else {
         if (i < 8) {
-          hash["one"].push(<td id={day} key={day}>{num}</td>)
+          if (eventHash[day]) {
+            hash["one"].push(
+              <td id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
+              </td>
+            )
+          } else {
+            hash["one"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+          }
         } else if (i >= 8 && i < 15) {
-          hash["two"].push(<td id={day} key={day}>{num}</td>)
+          if (eventHash[day]) {
+            hash["two"].push(<td id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
+            </td>)
+          } else {
+            hash["two"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+          }
         } else if (i >= 15 && i < 22) {
-          hash["three"].push(<td id={day} key={day}>{num}</td>)
+          if (eventHash[day]) {
+            hash["three"].push(<td id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
+            </td>)
+          } else {
+            hash["three"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+          }
         } else if (i >= 22 && i < 29) {
-          hash["four"].push(<td id={day} key={day}>{num}</td>)
+          if (eventHash[day]) {
+            hash["four"].push(<td id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
+            </td>)
+          } else {
+            hash["four"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+          }
         } else if (i >= 29 && i < 36) {
-          hash["five"].push(<td id={day} key={day}>{num}</td>)
+          if (eventHash[day]) {
+            hash["five"].push(<td id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
+            </td>)
+          } else {
+            hash["five"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+          }
         } else if (i >= 36 && i < 43) {
-          hash["six"].push(<td id={day} key={day}>{num}</td>)
+          if (eventHash[day]) {
+            hash["six"].push(<td id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
+            </td>)
+          } else {
+            hash["six"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+          }
         }
       }
    }

@@ -20,6 +20,11 @@
   width: 100%;
 }
 
+.month-container:hover {
+  background: rgba(135,206,250,0.2)    /* 10% opaque red */
+
+}
+
 .month-container h1 {
   display: flex;
   justify-content: center;
@@ -44,6 +49,34 @@
   cursor: pointer;
   width: 50px;
   height: 10px;
+}
+
+.month-container td p {
+  background-color: #f8f8f8;
+  color: black;
+  text-align: center;
+  padding: 2px 4px;
+  position: absolute;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 300;
+  opacity: 0;
+  margin-bottom: 60px;
+  margin-left: 40px;
+  transition: visibility 0s .5s, opacity .5s linear;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.has-event {
+  border: none;
+}
+
+.month-container td:hover p {
+  transition-delay: 1s;
+  background-color: #f8f8f8;
+  visibility: visible;
+  opacity: 1;
 }
 
 .month-container td:hover {
@@ -103,5 +136,8 @@
   color: #87CEFA;
   font-size: 20px;
   border-bottom: 3px solid #87CEFA;
+}
 
+.has-event {
+  color: red;
 }
