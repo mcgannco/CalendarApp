@@ -17,11 +17,11 @@ class CalendarShowItem extends React.Component {
   }
 
   drawCal() {
+    let events = this.props.currentUser.events.filter(event => event.month_id === this.props.month.id)
     let month = this.props.month.name
     let days = this.props.month.days
     let start = this.state.startingPoints[month]
     let end = this.state.endingPoints[month]
-
     let hash = {"one": [], "two": [], "three": [], "four": [], "five": [], "six": []}
     for (let i = 1; i < 43; i++) {
     let  num = days[i - start];
@@ -32,7 +32,6 @@ class CalendarShowItem extends React.Component {
       if (day) {
         day = day.id
       }
-
       if (i < start) {
         hash["one"].push(<td id={`${month}:${i}`} key={`${month}:${i}`}></td>)
       } else if (i > end) {

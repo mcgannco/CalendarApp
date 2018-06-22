@@ -17,9 +17,9 @@ export const receiveSingleMonth = (month) => (
 );
 
 export const requestAllMonths = () => dispatch => (
-  APIUtil.fetchAllMonths().then(months => dispatch(receiveAllMonths(months)))
-)
+  APIUtil.fetchAllMonths().then(months => (dispatch(receiveAllMonths(months)))
+));
 
 export const requestSingleMonth = (id) => dispatch => (
-  APIUtil.fetchSingleMonth(id).then(month => dispatch(receiveSingleMonth(month)))
-)
+  APIUtil.fetchSingleMonth(id).then(month => (dispatch(receiveSingleMonth(month)))
+));
