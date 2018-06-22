@@ -1,4 +1,2 @@
-json.month do
-  json.extract! @month, :id, :name, :year
-  json.days month.days
-end
+json.extract! month, :name, :year, :id
+json.days month.days

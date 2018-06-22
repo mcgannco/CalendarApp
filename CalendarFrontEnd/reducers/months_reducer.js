@@ -7,7 +7,7 @@ const monthsReducer =  (state = {}, action) => {
     case RECEIVE_ALL_MONTHS:
       return merge({}, state, action.months);
     case RECEIVE_SINGLE_MONTH:
-    let month = action.month;
+    let month = action.months;
       return merge({}, state, { [month.id]: month });
     default:
       return state;

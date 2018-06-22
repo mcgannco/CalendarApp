@@ -57,7 +57,7 @@ class CalendarIndexItem extends React.Component {
         }
       }
    }
-
+   
    return hash;
  }
 

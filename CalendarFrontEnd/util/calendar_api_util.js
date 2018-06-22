@@ -5,9 +5,11 @@ export const fetchAllMonths = () => (
   })
 );
 
-export const fetchSingleMonth = id => (
-  $.ajax({
-    method: 'GET',
-    url: `api/months/${id}`
-  })
-);
+export const fetchSingleMonth = id => {
+  return(
+    $.ajax({
+      method: 'GET',
+      url: `api/months/${id}`
+    })
+  )
+};
