@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-const eventsErrorsReducer =  (state = {}, action) => {
+const eventsErrorsReducer =  (state = [], action) => {
   Object.freeze(state);
   switch(action.type) {
     default:
