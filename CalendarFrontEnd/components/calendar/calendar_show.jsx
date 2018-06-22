@@ -25,7 +25,7 @@ class CalendarShow extends React.Component {
     }
       return(
           <div className="months-container">
-            <h1>{month.name}</h1>
+            <h1 onClick={this.test}>{month.name}</h1>
         </div>
       )
     }
