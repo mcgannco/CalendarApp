@@ -20,9 +20,12 @@ class CalendarShow extends React.Component {
 
   render() {
     let {month} = this.props
+    if (!month) {
+      return null;
+    }
       return(
           <div className="months-container">
-            <h1>cal show</h1>
+            <h1>{month.name}</h1>
         </div>
       )
     }
