@@ -66,6 +66,7 @@
   transition: visibility 0s .5s, opacity .5s linear;
   border: 1px solid #ccc;
   border-radius: 3px;
+  text-decoration: none;
 }
 
 .has-event {
@@ -125,6 +126,32 @@
 
 .individual-month-container td:hover {
   border:1px solid #87CEFA;
+}
+
+.individual-month-container td p {
+  background-color: #f8f8f8;
+  color: black;
+  text-align: center;
+  padding: 2px 4px;
+  position: absolute;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 300;
+  opacity: 0;
+  margin-bottom: 60px;
+  margin-left: 40px;
+  transition: visibility 0s .5s, opacity .5s linear;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.individual-month-container td:hover p {
+  transition-delay: 1s;
+  background-color: #f8f8f8;
+  visibility: visible;
+  opacity: 1;
+  text-decoration: none;
 }
 
 .events-container {

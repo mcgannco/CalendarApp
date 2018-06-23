@@ -30,9 +30,7 @@ class CalendarShow extends React.Component {
                   <CalendarShowItem currentUser={currentUser} key={month.name} month={month}/>
             </div>
 
-            <div className="events-container">
-              <h1>{currentUser.username}s Events {month.name} {month.year}</h1>
-            </div>
+          
 
           </div>
       )
