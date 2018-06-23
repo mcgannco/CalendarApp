@@ -151,11 +151,21 @@ class CalendarShow extends React.Component {
             break
           }
         }
+        let events = currentUser.events.filter(event => event.day_id === this.state.selectedDay)
+        let eventList;
+        if (events.length < 1) {
+          eventList = <li>No Events Scheduled</li>
+        } else {
+          eventList = events.map(event => <li key={event.id}>{event.description}</li>)
+        }
         eventDetail =   <div className="events-container">
             <div className="events-header">
               <p onClick={this.closeEvents}><i className="far fa-window-close"></i></p>
               <span><nav>{currentUser.username}s Events </nav><p>{month.name} {day}, {month.year}</p></span>
             </div>
+
+          {eventList}
+
           </div>
       } else {
         eventDetail = null;
