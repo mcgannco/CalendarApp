@@ -19,6 +19,7 @@ class CalendarShow extends React.Component {
     this.drawCal = this.drawCal.bind(this)
     this.openEvents = this.openEvents.bind(this)
     this.closeEvents = this.closeEvents.bind(this)
+    this.convertTime = this.convertTime.bind(this)
   }
 
   componentDidMount() {
@@ -39,6 +40,30 @@ class CalendarShow extends React.Component {
   closeEvents(e) {
     e.preventDefault()
     this.setState({eventsShow: false, selectedDay: ""})
+  }
+
+  convertTime(time) {
+    if(time === "") {
+      return "TBD"
+    }
+    let hours = parseInt(time.slice(0,2));
+    let minutes = parseInt(time.slice(3,5));
+    let zone = "am";
+
+    if (hours > 12) {
+        hours -= 12;
+        zone = "pm";
+    } else if (hours === 12) {
+       zone = "pm";
+    } else if (hours === 0) {
+       hours = 12;
+    }
+
+    if (minutes < 10) {
+      minutes = `0${minutes}`
+    }
+
+    return `${hours}:${minutes} ${zone}`;
   }
 
   drawCal() {
@@ -154,9 +179,27 @@ class CalendarShow extends React.Component {
         let events = currentUser.events.filter(event => event.day_id === this.state.selectedDay)
         let eventList;
         if (events.length < 1) {
-          eventList = <li>No Events Scheduled</li>
+          eventList = <li className="no-events">No Events Scheduled
+            <span>
+              <i className="far fa-calendar-alt"></i>
+            </span>
+          </li>
         } else {
-          eventList = events.map(event => <li key={event.id}>{event.description}</li>)
+          eventList = events.map(event => <li key={event.id}>
+
+            <span>
+              Description: {event.description}
+            </span>
+
+            <span>
+              Start Time: {this.convertTime(event.start_time)}
+            </span>
+
+            <span>
+              End Time: {this.convertTime(event.end_time)}
+            </span>
+
+          </li>)
         }
         eventDetail =   <div className="events-container">
             <div className="events-header">
@@ -164,7 +207,9 @@ class CalendarShow extends React.Component {
               <nav>{currentUser.username}s Events </nav><small>{month.name} {day}, {month.year}</small></span>
             </div>
 
-          {eventList}
+          <ul>
+            {eventList}
+          </ul>
 
           </div>
       } else {

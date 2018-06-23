@@ -209,6 +209,24 @@
   color: #87CEFA;
 }
 
+.events-container ul {
+  margin-top: 20px;
+}
+
 .events-container li {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.no-events {
+  color: grey;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+}
+
+.no-events svg {
+  font-size: 30px;
 }
