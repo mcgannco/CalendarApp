@@ -185,18 +185,23 @@ class CalendarShow extends React.Component {
             </span>
           </li>
         } else {
-          eventList = events.map(event => <li key={event.id}>
+          eventList = events.map(event => <li className="event-list-item" key={event.id}>
 
             <span>
-              Description: {event.description}
+              <div className="event-list-desc"><h3>Description:</h3> {event.description}</div>
+              <div className="event-option-icons">
+                <nav><i className="far fa-window-close"></i></nav>
+                <nav><i class="fa fa-edit"></i></nav>
+              </div>
+
             </span>
 
             <span>
-              Start Time: {this.convertTime(event.start_time)}
+              <div className="event-list-desc"><h3>Start:</h3> {this.convertTime(event.start_time)}</div>
             </span>
 
             <span>
-              End Time: {this.convertTime(event.end_time)}
+              <div className="event-list-desc"><h3>End:</h3> {this.convertTime(event.end_time)}</div>
             </span>
 
           </li>)
