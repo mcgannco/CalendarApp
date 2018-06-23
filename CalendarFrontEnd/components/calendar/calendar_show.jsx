@@ -13,7 +13,8 @@ class CalendarShow extends React.Component {
     endingPoints: {'January': 32, 'February': 32, 'March': 35,
     'April': 30, 'May': 33, 'June': 35, 'July': 31, 'August': 34, 'September': 36,
   'October': 32, 'November': 34, 'December': 37},
-  eventsShow: false
+  eventsShow: false,
+  selectedDay: ""
     }
     this.drawCal = this.drawCal.bind(this)
     this.openEvents = this.openEvents.bind(this)
@@ -32,13 +33,12 @@ class CalendarShow extends React.Component {
 
   openEvents(e) {
     e.preventDefault()
-    this.setState({eventsShow: true})
+    this.setState({eventsShow: true, selectedDay: parseInt(e.currentTarget.id)})
   }
 
   closeEvents(e) {
-    debugger
     e.preventDefault()
-    this.setState({eventsShow: false})
+    this.setState({eventsShow: false, selectedDay: ""})
   }
 
   drawCal() {
@@ -84,42 +84,42 @@ class CalendarShow extends React.Component {
               </td>
             )
           } else {
-            hash["one"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+            hash["one"].push(<td onClick={this.openEvents} id={day} key={day}>{num}<p className="event-count">No events</p></td>)
           }
         } else if (i >= 8 && i < 15) {
           if (eventHash[day]) {
-            hash["two"].push(<td id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
+            hash["two"].push(<td onClick={this.openEvents} id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
             </td>)
           } else {
-            hash["two"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+            hash["two"].push(<td onClick={this.openEvents} id={day} key={day}>{num}<p className="event-count">No events</p></td>)
           }
         } else if (i >= 15 && i < 22) {
           if (eventHash[day]) {
-            hash["three"].push(<td id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
+            hash["three"].push(<td onClick={this.openEvents} id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
             </td>)
           } else {
-            hash["three"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+            hash["three"].push(<td onClick={this.openEvents} id={day} key={day}>{num}<p className="event-count">No events</p></td>)
           }
         } else if (i >= 22 && i < 29) {
           if (eventHash[day]) {
-            hash["four"].push(<td id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
+            hash["four"].push(<td onClick={this.openEvents} id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
             </td>)
           } else {
-            hash["four"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+            hash["four"].push(<td onClick={this.openEvents} id={day} key={day}>{num}<p className="event-count">No events</p></td>)
           }
         } else if (i >= 29 && i < 36) {
           if (eventHash[day]) {
-            hash["five"].push(<td id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
+            hash["five"].push(<td onClick={this.openEvents} id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
             </td>)
           } else {
-            hash["five"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+            hash["five"].push(<td onClick={this.openEvents} id={day} key={day}>{num}<p className="event-count">No events</p></td>)
           }
         } else if (i >= 36 && i < 43) {
           if (eventHash[day]) {
-            hash["six"].push(<td id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
+            hash["six"].push(<td onClick={this.openEvents} id={day} className="has-event" key={day}>{num}<p className="event-count">{eventHash[day].length} events</p>
             </td>)
           } else {
-            hash["six"].push(<td id={day} key={day}>{num}<p className="event-count">No events</p></td>)
+            hash["six"].push(<td onClick={this.openEvents} id={day} key={day}>{num}<p className="event-count">No events</p></td>)
           }
         }
       }
@@ -130,13 +130,10 @@ class CalendarShow extends React.Component {
 
   render() {
     let {month, currentUser} = this.props
-    if (!month) {
+    if (!month || !currentUser) {
       return null;
     }
 
-    if (!this.props.currentUser) {
-      return null;
-    }
       let weeks = this.drawCal();
       let week1 = weeks["one"]
       let week2 = weeks["two"]
@@ -147,10 +144,17 @@ class CalendarShow extends React.Component {
       let eventDetail;
 
       if (this.state.eventsShow) {
+        let day;
+        for (let i = 0; i < month.days.length; i++) {
+          if(this.state.selectedDay === month.days[i].id) {
+            day = month.days[i].num
+            break
+          }
+        }
         eventDetail =   <div className="events-container">
             <div className="events-header">
               <p onClick={this.closeEvents}><i className="far fa-window-close"></i></p>
-              <h1>{currentUser.username}s Events</h1>
+              <span><nav>{currentUser.username}s Events </nav><p>{month.name} {day}, {month.year}</p></span>
             </div>
           </div>
       } else {

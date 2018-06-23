@@ -186,8 +186,20 @@
   width: 100%;
 }
 
-.events-header h1{
+.events-header span{
   width: 90%;
+  display: flex;
+  justify-content: space-around;
+  color: #87CEFA;
+  font-size: 20px;
+  border-bottom: 3px solid #87CEFA;
+  align-items: center;
+}
+
+.events-header span p {
+  color: grey;
+  font-size: 13px;
+  cursor: auto;
 }
 
 .events-header p {
