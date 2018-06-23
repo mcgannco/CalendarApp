@@ -93,10 +93,6 @@
   flex-wrap: wrap;
 }
 
-.individual-month-container {
-  width: 100%;
-}
-
 .individual-month-container h1 {
   display: flex;
   justify-content: center;
@@ -181,5 +177,23 @@
 
 .main-logo svg {
   font-size: 250px;
+  color: #87CEFA;
+}
+
+.events-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.events-header h1{
+  width: 90%;
+}
+
+.events-header p {
+  cursor: pointer;
+}
+
+.events-header svg {
   color: #87CEFA;
 }
