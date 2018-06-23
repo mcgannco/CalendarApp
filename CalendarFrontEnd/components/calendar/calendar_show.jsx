@@ -160,8 +160,8 @@ class CalendarShow extends React.Component {
         }
         eventDetail =   <div className="events-container">
             <div className="events-header">
-              <p onClick={this.closeEvents}><i className="far fa-window-close"></i></p>
-              <span><nav>{currentUser.username}s Events </nav><p>{month.name} {day}, {month.year}</p></span>
+              <span><p onClick={this.closeEvents}><i className="far fa-window-close"></i></p>
+              <nav>{currentUser.username}s Events </nav><small>{month.name} {day}, {month.year}</small></span>
             </div>
 
           {eventList}

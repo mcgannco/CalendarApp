@@ -189,17 +189,16 @@
 .events-header span{
   width: 90%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   color: #87CEFA;
   font-size: 20px;
   border-bottom: 3px solid #87CEFA;
   align-items: center;
 }
 
-.events-header span p {
+.events-header small {
   color: grey;
   font-size: 13px;
-  cursor: auto;
 }
 
 .events-header p {
@@ -208,4 +207,8 @@
 
 .events-header svg {
   color: #87CEFA;
+}
+
+.events-container li {
+  list-style-type: none;
 }
