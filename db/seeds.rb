@@ -72,19 +72,3 @@
     (1..December.num_days).each do |day|
       Day.create!(num: day, month_id: December.id)
     end
-
-    event1 = Event.create!({user_id: demoUser.id, month_id: January.id,
-      day_id: January.days.first.id, description:"First day of January", start_time: Time.new,
-    end_time: Time.new})
-
-    event2 = Event.create!({user_id: demoUser.id, month_id: February.id,
-      day_id: February.days.first.id, description:"First day of February", start_time: Time.new,
-    end_time: Time.new})
-
-    event3 = Event.create!({user_id: demoUser.id, month_id: February.id,
-      day_id: February.days.last.id, description:"Last day of January", start_time: Time.new,
-    end_time: Time.new})
-
-    event4 = Event.create!({user_id: demoUser.id, month_id: March.id,
-      day_id: March.days.first.id, description:"First day of March", start_time: Time.new,
-    end_time: Time.new})

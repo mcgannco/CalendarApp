@@ -13,20 +13,26 @@ class CalendarShow extends React.Component {
     endingPoints: {'January': 32, 'February': 32, 'March': 35,
     'April': 30, 'May': 33, 'June': 35, 'July': 31, 'August': 34, 'September': 36,
   'October': 32, 'November': 34, 'December': 37},
-  eventsShow: false,
-  selectedDay: "",
-  eventFormOpen: false
+    eventsShow: false,
+    selectedDay: "",
+    eventFormOpen: false,
+    startTime: "",
+    endTime: "",
+    description: ""
     }
     this.drawCal = this.drawCal.bind(this)
     this.openEvents = this.openEvents.bind(this)
     this.closeEvents = this.closeEvents.bind(this)
     this.openEventForm = this.openEventForm.bind(this)
     this.createEvent = this.createEvent.bind(this)
+    this.updateDescription = this.updateDescription.bind(this)
+    this.setStartTime = this.setStartTime.bind(this)
+    this.setEndTime = this.setEndTime.bind(this)
     this.convertTime = this.convertTime.bind(this)
   }
 
   componentDidMount() {
-    this.props.requestSingleMonth(this.props.match.params.monthId);
+    this.props.requestSingleMonth(this.props.match.params.monthId).then(this.props.requestAllEvents());
   }
 
   componentWillReceiveProps(nextProps) {
@@ -51,7 +57,25 @@ class CalendarShow extends React.Component {
   }
 
   createEvent(e) {
-    
+    let {createEvent, currentUser, month} = this.props;
+    createEvent({event: {user_id: parseInt(currentUser.id), month_id: parseInt(month.id),
+      day_id: parseInt(this.state.selectedDay), description: this.state.description, start_time: this.state.startTime, end_time: this.state.endTime
+     }}).then(this.setState({startTime: "", endTime: "", description: "",eventFormOpen: false}))
+  }
+
+  updateDescription(e) {
+    const description = e.target.value ? e.target.value : "";
+        this.setState({ description });
+  }
+
+  setStartTime(e) {
+    const startTime = e.target.value ? e.target.value : "";
+        this.setState({ startTime });
+  }
+
+  setEndTime(e) {
+    const endTime = e.target.value ? e.target.value : "";
+        this.setState({ endTime });
   }
 
   convertTime(time) {
@@ -81,7 +105,7 @@ class CalendarShow extends React.Component {
   drawCal() {
     let month = this.props.month.name
     let days = this.props.month.days
-    let events = this.props.currentUser.events.filter(event => event.month_id === this.props.month.id)
+    let events = this.props.events.filter(event => event.month_id === this.props.month.id)
     let start = this.state.startingPoints[month]
     let end = this.state.endingPoints[month]
     let eventHash = {};
@@ -184,9 +208,9 @@ class CalendarShow extends React.Component {
       if(this.state.eventFormOpen) {
         eventForm = <div className="event-form">
           <h1>Create Event</h1>
-          <input className="description"placeholder="Enter Description"></input>
-          <div className="time"><p>Start</p><input id="time" type="time"></input></div>
-          <div className="time"><p>End</p><input id="time" type="time"></input></div>
+          <input onChange={this.updateDescription}className="description"placeholder="Enter Description"></input>
+          <div className="time"><p>Start</p><input onChange={this.setStartTime} id="time" type="time"></input></div>
+          <div className="time"><p>End</p><input onChange={this.setEndTime} id="time" type="time"></input></div>
           <div className="create-button"><button onClick={this.createEvent}>Create</button></div>
         </div>
       }
@@ -199,7 +223,7 @@ class CalendarShow extends React.Component {
             break
           }
         }
-        let events = currentUser.events.filter(event => event.day_id === this.state.selectedDay)
+        let events = this.props.events.filter(event => event.day_id === this.state.selectedDay)
         let eventList;
         if (events.length < 1) {
           eventList = <li className="no-events">No Events Scheduled
