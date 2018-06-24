@@ -21,6 +21,7 @@ class CalendarShow extends React.Component {
     this.openEvents = this.openEvents.bind(this)
     this.closeEvents = this.closeEvents.bind(this)
     this.openEventForm = this.openEventForm.bind(this)
+    this.createEvent = this.createEvent.bind(this)
     this.convertTime = this.convertTime.bind(this)
   }
 
@@ -47,6 +48,10 @@ class CalendarShow extends React.Component {
   openEventForm(e) {
     e.preventDefault()
     this.setState({eventFormOpen: true})
+  }
+
+  createEvent(e) {
+    
   }
 
   convertTime(time) {
@@ -182,7 +187,7 @@ class CalendarShow extends React.Component {
           <input className="description"placeholder="Enter Description"></input>
           <div className="time"><p>Start</p><input id="time" type="time"></input></div>
           <div className="time"><p>End</p><input id="time" type="time"></input></div>
-          <div className="create-button"><button>Create</button></div>
+          <div className="create-button"><button onClick={this.createEvent}>Create</button></div>
         </div>
       }
 
