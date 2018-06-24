@@ -20,3 +20,10 @@ export const deleteEvent = (eventId) => {
     url: `api/events/${eventId}`
   });
 };
+
+export const updateEvent = (eventId) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/events/${eventId}`
+  });
+};

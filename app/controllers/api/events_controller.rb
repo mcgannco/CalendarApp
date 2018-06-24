@@ -18,6 +18,12 @@ class Api::EventsController < ApplicationController
   end
 
   def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      render "api/events/show"
+    else
+      render json: @event.errors.full_messages, status: 422
+    end
   end
 
   def destroy

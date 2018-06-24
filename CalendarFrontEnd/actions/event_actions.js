@@ -50,3 +50,10 @@ export const deleteEvent = (eventId) => dispatch => {
     APIUtil.deleteEvent(eventId).then(event => dispatch(removeEvent(eventId)),
   err => dispatch(receiveEventErrors(err.responseJSON))));
 };
+
+export const updateEvent = (eventId) => dispatch => {
+
+  return(
+    APIUtil.updateEvent(eventId).then(event => dispatch(receiveSingleEvent(eventId)),
+  err => dispatch(receiveEventErrors(err.responseJSON))));
+};
