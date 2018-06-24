@@ -14,11 +14,13 @@ class CalendarShow extends React.Component {
     'April': 30, 'May': 33, 'June': 35, 'July': 31, 'August': 34, 'September': 36,
   'October': 32, 'November': 34, 'December': 37},
   eventsShow: false,
-  selectedDay: ""
+  selectedDay: "",
+  eventFormOpen: false
     }
     this.drawCal = this.drawCal.bind(this)
     this.openEvents = this.openEvents.bind(this)
     this.closeEvents = this.closeEvents.bind(this)
+    this.openEventForm = this.openEventForm.bind(this)
     this.convertTime = this.convertTime.bind(this)
   }
 
@@ -39,7 +41,12 @@ class CalendarShow extends React.Component {
 
   closeEvents(e) {
     e.preventDefault()
-    this.setState({eventsShow: false, selectedDay: ""})
+    this.setState({eventsShow: false, selectedDay: "", eventFormOpen: false})
+  }
+
+  openEventForm(e) {
+    e.preventDefault()
+    this.setState({eventFormOpen: true})
   }
 
   convertTime(time) {
@@ -167,6 +174,16 @@ class CalendarShow extends React.Component {
       let week5 = weeks["five"]
       let week6 = weeks["six"]
       let eventDetail;
+      let eventForm;
+
+      if(this.state.eventFormOpen) {
+        eventForm = <div>
+          <h1>Create Event</h1>
+          <input className="description"placeholder="Enter Description"></input>
+          <div><p>Start</p><input id="time" type="time"></input></div>
+          <div><p>End</p><input id="time" type="time"></input></div>
+        </div>
+      }
 
       if (this.state.eventsShow) {
         let day;
@@ -191,7 +208,7 @@ class CalendarShow extends React.Component {
               <div className="event-list-desc"><h3>Description:</h3> {event.description}</div>
               <div className="event-option-icons">
                 <nav><i className="far fa-window-close"></i></nav>
-                <nav><i class="fa fa-edit"></i></nav>
+                <nav><i className="fa fa-edit"></i></nav>
               </div>
 
             </span>
@@ -211,11 +228,11 @@ class CalendarShow extends React.Component {
               <span><p onClick={this.closeEvents}><i className="far fa-window-close"></i></p>
               <nav>{currentUser.username}s Events </nav><small>{month.name} {day}, {month.year}</small></span>
             </div>
-
+            <div onClick={this.openEventForm} className="add-event"><i className="fa fa-plus"></i></div>
           <ul>
             {eventList}
           </ul>
-
+          {eventForm}
           </div>
       } else {
         eventDetail = null;
@@ -258,9 +275,7 @@ class CalendarShow extends React.Component {
                   </table>
                 </div>
               </div>
-
                 {eventDetail}
-
           </div>
       )
     }

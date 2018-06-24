@@ -209,10 +209,6 @@
   color: #87CEFA;
 }
 
-.events-container ul {
-  margin-top: 20px;
-}
-
 .no-events {
   color: grey;
   display: flex;
@@ -225,11 +221,18 @@
   flex-direction: column;
   background: #F8F8F8;
   font-size: 12px;
+  margin-top: 10px;
 }
 
 .events-container li span {
   display: flex;
   align-items: center;
+}
+
+.events-container  ul {
+  overflow: scroll;
+  height: 309px;
+  // box-shadow:0.02em 0.1em 0.3em 0.015em #999999;
 }
 
 .event-list-item  h3 {
@@ -264,4 +267,20 @@
 
 .event-option-icons nav {
   cursor: pointer;
+}
+
+.add-event {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.add-event svg {
+  color: green;
+}
+
+.description {
+  margin-top: 5px;
+  border: 1px solid lightgrey;
+  width: 95%;
+  padding: 5px 10px;
 }
