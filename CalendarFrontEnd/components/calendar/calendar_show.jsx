@@ -177,11 +177,12 @@ class CalendarShow extends React.Component {
       let eventForm;
 
       if(this.state.eventFormOpen) {
-        eventForm = <div>
+        eventForm = <div className="event-form">
           <h1>Create Event</h1>
           <input className="description"placeholder="Enter Description"></input>
-          <div><p>Start</p><input id="time" type="time"></input></div>
-          <div><p>End</p><input id="time" type="time"></input></div>
+          <div className="time"><p>Start</p><input id="time" type="time"></input></div>
+          <div className="time"><p>End</p><input id="time" type="time"></input></div>
+          <div className="create-button"><button>Create</button></div>
         </div>
       }
 
