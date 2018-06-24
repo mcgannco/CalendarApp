@@ -25,6 +25,7 @@ class CalendarShow extends React.Component {
     this.closeEvents = this.closeEvents.bind(this)
     this.openEventForm = this.openEventForm.bind(this)
     this.createEvent = this.createEvent.bind(this)
+    this.destroyEvent = this.destroyEvent.bind(this)
     this.updateDescription = this.updateDescription.bind(this)
     this.setStartTime = this.setStartTime.bind(this)
     this.setEndTime = this.setEndTime.bind(this)
@@ -76,6 +77,10 @@ class CalendarShow extends React.Component {
   setEndTime(e) {
     const endTime = e.target.value ? e.target.value : "";
         this.setState({ endTime });
+  }
+
+  destroyEvent(e) {
+    this.props.deleteEvent(e.currentTarget.id)
   }
 
   convertTime(time) {
@@ -237,7 +242,7 @@ class CalendarShow extends React.Component {
             <span>
               <div className="event-list-desc"><h3>Description:</h3> {event.description}</div>
               <div className="event-option-icons">
-                <nav><i className="far fa-window-close"></i></nav>
+                <nav id={event.id} onClick={this.destroyEvent}><i className="far fa-window-close"></i></nav>
                 <nav><i className="fa fa-edit"></i></nav>
               </div>
 

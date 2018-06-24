@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :months, only: [:create, :index, :show]
     resources :days, only: [:create, :index, :show]
-    resources :events, only: [:create, :index, :show, :update, :delete]
+    resources :events, only: [:create, :index, :show, :update, :destroy]
   end
 
 end

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { requestSingleMonth } from '../../actions/calendar_actions';
-import { requestAllEvents, createEvent } from '../../actions/event_actions';
+import { requestAllEvents, createEvent, deleteEvent } from '../../actions/event_actions';
 import { selectAllEvents } from '../../reducers/selectors';
 import CalendarShow from './calendar_show';
 
@@ -22,7 +22,8 @@ const mdp = dispatch => {
   return({
     requestSingleMonth: (id) => dispatch(requestSingleMonth(id)),
     requestAllEvents: () => dispatch(requestAllEvents()),
-    createEvent: (event) => dispatch(createEvent(event))
+    createEvent: (event) => dispatch(createEvent(event)),
+    deleteEvent: (eventId) => dispatch(deleteEvent(eventId))
   })
 };
 
