@@ -58,7 +58,7 @@ class CalendarShow extends React.Component {
 
   openEventForm(e) {
     e.preventDefault()
-    this.setState({eventFormOpen: true})
+    this.setState({eventFormOpen: true, description: "", startTime: "", endTime: "", eventEditFormOpen: false})
   }
 
   createEvent(e) {
@@ -88,7 +88,7 @@ class CalendarShow extends React.Component {
   }
 
   changeEvent(event) {
-    this.setState({eventEditFormOpen: true, description: event.description, startTime: event.start_time, endTime: event.end_time, event: event} )
+    this.setState({eventEditFormOpen: true, eventFormOpen: false, description: event.description, startTime: event.start_time, endTime: event.end_time, event: event} )
   }
 
   updateEvent(e) {
