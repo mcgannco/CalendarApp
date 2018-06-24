@@ -64,14 +64,22 @@ class SessionForm extends React.Component {
     } else if ((errors_hash["Invalid password/username"])) {
       password_errors = "Invalid password/username";
     }
+
+    let username_errors;
+    if (errors_hash["Username can't be blank"]) {
+      username_errors = "Username can't be blank";
+    } else if ((errors_hash["Username has already been taken"])) {
+      username_errors = "Username has already been taken";
+    }
+
     return(
       <div className="session-container">
         <div className="session">
           <h3>{formName}</h3>
 
-          <div className={errors_hash["Username can't be blank"] || errors_hash["Invalid password/username"]  ? "sessionForm-input-errors" : "sessionForm-input"}>
+          <div className={errors_hash["Username can't be blank"] || errors_hash["Invalid password/username"] || errors_hash["Username has already been taken"] ? "sessionForm-input-errors" : "sessionForm-input"}>
             <input id="username" placeholder= "Enter Username" onChange={this.updateInput} value={this.state.username}></input>
-              <p className="error-messages">{errors_hash["Username can't be blank"]}</p>
+              <p className="error-messages">{username_errors}</p>
           </div>
 
           <div className={errors_hash["Invalid password/username"] || errors_hash["Password is too short (minimum is 6 characters)"] ? "sessionForm-input-errors" : "sessionForm-input"}>

@@ -53,7 +53,7 @@ class CalendarShow extends React.Component {
 
   closeEvents(e) {
     e.preventDefault()
-    this.setState({eventsShow: false, selectedDay: "", eventFormOpen: false})
+    this.setState({eventsShow: false, selectedDay: "", eventFormOpen: false, eventEditFormOpen: false})
   }
 
   openEventForm(e) {
@@ -84,7 +84,7 @@ class CalendarShow extends React.Component {
   }
 
   destroyEvent(e) {
-    this.props.deleteEvent(e.currentTarget.id)
+    this.props.deleteEvent(e.currentTarget.id).then(this.setState({event: "", description: "", startTime: "", endTime: "", eventEditFormOpen: false, eventFormOpen: false}))
   }
 
   changeEvent(event) {
