@@ -21,9 +21,10 @@ export const deleteEvent = (eventId) => {
   });
 };
 
-export const updateEvent = (eventId) => {
+export const updateEvent = (event) => {
   return $.ajax({
     method: 'PATCH',
-    url: `api/events/${eventId}`
+    url: `api/events/${event.id}`,
+    data: { event }
   });
 };

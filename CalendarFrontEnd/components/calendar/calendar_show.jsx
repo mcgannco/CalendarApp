@@ -19,10 +19,8 @@ class CalendarShow extends React.Component {
     eventEditFormOpen: false,
     startTime: "",
     endTime: "",
+    event: "",
     description: "",
-    editDescrtiption: "",
-    editStartTime: "",
-    editEndTime: ""
     }
     this.drawCal = this.drawCal.bind(this)
     this.openEvents = this.openEvents.bind(this)
@@ -30,6 +28,7 @@ class CalendarShow extends React.Component {
     this.openEventForm = this.openEventForm.bind(this)
     this.createEvent = this.createEvent.bind(this)
     this.destroyEvent = this.destroyEvent.bind(this)
+    this.updateEvent = this.updateEvent.bind(this)
     this.changeEvent = this.changeEvent.bind(this)
     this.updateDescription = this.updateDescription.bind(this)
     this.setStartTime = this.setStartTime.bind(this)
@@ -89,7 +88,14 @@ class CalendarShow extends React.Component {
   }
 
   changeEvent(event) {
-    this.setState({eventEditFormOpen: true, editDescrtiption: event.description, editStartTime: event.startTime, editEndTime: event.endTime} )
+    this.setState({eventEditFormOpen: true, description: event.description, startTime: event.start_time, endTime: event.end_time, event: event} )
+  }
+
+  updateEvent(e) {
+    let {updateEvent, currentUser, month} = this.props;
+    updateEvent({id: this.state.event.id, user_id: parseInt(currentUser.id), month_id: parseInt(month.id),
+      day_id: parseInt(this.state.selectedDay), description: this.state.description, start_time: this.state.startTime, end_time: this.state.endTime
+    }).then(this.setState({event: "", description: "", startTime: "", endTime: "", eventEditFormOpen: false}))
   }
 
   convertTime(time) {
@@ -232,10 +238,10 @@ class CalendarShow extends React.Component {
       if(this.state.eventEditFormOpen) {
         eventForm = <div className="event-form">
           <h1>Edit Event</h1>
-          <input onChange={this.updateDescription}className="description"value={this.state.editDescrtiption}></input>
-          <div className="time"><p>Start</p><input onChange={this.setStartTime} value={this.state.editStartTime} id="time" type="time"></input></div>
-          <div className="time"><p>End</p><input onChange={this.setEndTime} id="time" type="time"></input></div>
-          <div className="create-button"><button onClick={this.createEvent}>Create</button></div>
+          <input onChange={this.updateDescription}className="description"value={this.state.description}></input>
+          <div className="time"><p>Start</p><input onChange={this.setStartTime} value={this.state.startTime} id="time" type="time"></input></div>
+          <div className="time"><p>End</p><input onChange={this.setEndTime} value={this.state.endTime} id="time" type="time"></input></div>
+          <div className="create-button"><button onClick={this.updateEvent}>Update</button></div>
         </div>
       }
 
