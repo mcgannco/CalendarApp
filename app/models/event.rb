@@ -19,6 +19,7 @@ class Event < ApplicationRecord
   belongs_to :day
   validates :user, :month, :day, :description, :start_time, :end_time, presence: true
   validate :start_time_before_end_time
+  validate :max_event_per_day_quota
 
   private
    def start_time_before_end_time
@@ -30,6 +31,12 @@ class Event < ApplicationRecord
 
      if Time.new(2018,month.num,1,day.num,start_hours,start_minutes, 0) > Time.new(2018,month.num,1,day.num,end_hours,end_minutes, 0)
        errors[:base] << 'Start time must come before end time'
+     end
+   end
+
+   def max_event_per_day_quota
+     if self.day.events.length > 9
+       errors[:base] << 'Max events per day is 10'
      end
    end
 

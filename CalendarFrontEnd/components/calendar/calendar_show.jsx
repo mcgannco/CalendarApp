@@ -229,6 +229,8 @@ class CalendarShow extends React.Component {
     let description_errors;
     if (errors_hash["Description can't be blank"]) {
       description_errors = "Description can't be blank";
+    } else if (errors_hash["Max events per day is 10"]) {
+      description_errors = "Max events per day is 10";
     }
 
     let start_time_errors;
