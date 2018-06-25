@@ -234,11 +234,15 @@ class CalendarShow extends React.Component {
     let start_time_errors;
     if (errors_hash["Start time can't be blank"]) {
       start_time_errors = "Start time can't be blank";
+    } else if (errors_hash["Start time must come before end time"]) {
+      start_time_errors = "Start time must come before end time";
     }
 
     let end_time_errors;
     if (errors_hash["End time can't be blank"]) {
       end_time_errors = "End time can't be blank";
+    } else if (errors_hash["Start time must come before end time"]) {
+      end_time_errors = "Start time must come before end time";
     }
 
       let weeks = this.drawCal();
@@ -258,7 +262,7 @@ class CalendarShow extends React.Component {
             <input className={errors_hash["Description can't be blank"] ? "description-errors" : "description"}onChange={this.updateDescription}placeholder="Enter Description" value={this.state.description}></input>
             <p className="error-messages">{description_errors}</p>
           </div>
-          <div className={errors_hash["Start time can't be blank"] ? "time-errors" : "time"}>
+          <div className={errors_hash["Start time can't be blank"] || errors_hash["Start time must come before end time"] ? "time-errors" : "time"}>
             <p>Start</p>
           <div>
             <input value={this.state.startTime} onChange={this.setStartTime} id="time" type="time"></input>
@@ -266,7 +270,7 @@ class CalendarShow extends React.Component {
           </div>
           </div>
 
-          <div className={errors_hash["End time can't be blank"] ? "time-errors" : "time"}>
+          <div className={errors_hash["End time can't be blank"] || errors_hash["Start time must come before end time"] ? "time-errors" : "time"}>
             <p>End</p>
             <div>
               <input value={this.state.endTime} onChange={this.setEndTime} id="time" type="time"></input>
@@ -285,7 +289,7 @@ class CalendarShow extends React.Component {
             <p className="error-messages">{description_errors}</p>
           </div>
 
-          <div className={errors_hash["Start time can't be blank"] ? "time-errors" : "time"}>
+          <div className={errors_hash["Start time can't be blank"] || errors_hash["Start time must come before end time"] ? "time-errors" : "time"}>
             <p>Start</p>
             <div>
               <input onChange={this.setStartTime} value={this.state.startTime} id="time" type="time"></input>
@@ -293,7 +297,7 @@ class CalendarShow extends React.Component {
             </div>
             </div>
 
-          <div className={errors_hash["End time can't be blank"] ? "time-errors" : "time"}>
+          <div className={errors_hash["End time can't be blank"] || errors_hash["Start time must come before end time"] ? "time-errors" : "time"}>
             <p>End</p>
             <div>
               <input onChange={this.setEndTime} value={this.state.endTime} id="time" type="time"></input>

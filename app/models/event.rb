@@ -18,4 +18,19 @@ class Event < ApplicationRecord
   belongs_to :month
   belongs_to :day
   validates :user, :month, :day, :description, :start_time, :end_time, presence: true
+  validate :start_time_before_end_time
+
+  private
+   def start_time_before_end_time
+     start_hours = start_time[0..1].to_i
+     start_minutes = start_time[3..-1].to_i
+
+     end_hours = end_time[0..1].to_i
+     end_minutes = end_time[3..-1].to_i
+
+     if Time.new(2018,1,1,1,start_hours,start_minutes, 0) > Time.new(2018,1,1,1,end_hours,end_minutes, 0)
+       errors[:base] << 'Start time must come before end time'
+     end
+   end
+
 end
