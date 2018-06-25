@@ -210,7 +210,8 @@ class CalendarShow extends React.Component {
  }
 
   render() {
-    let {month, currentUser} = this.props
+    let {month, currentUser, errors} = this.props
+    let errorString;
     if (!month || !currentUser) {
       return null;
     }

@@ -11,10 +11,12 @@ const msp = state => {
   } else {
     data = null;
   }
+  
   return({
     currentUser: state.entities.users[state.session.id],
     month: state.ui.currentMonth,
-    events: data
+    events: data,
+    errors: state.errors.events
   })
 };
 
