@@ -285,11 +285,26 @@
   padding: 5px 10px;
 }
 
+.description-errors {
+  margin-top: 5px;
+  border: 1px solid #d50000;;
+  width: 95%;
+  padding: 5px 10px;
+}
+
 .time {
   display: flex;
   justify-content: space-between;
   width: 40%;
   color: green;
+  margin-top: 20px;
+}
+
+.time-errors {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  color: #d50000;;
   margin-top: 20px;
 }
 

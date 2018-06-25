@@ -65,7 +65,9 @@ class CalendarShow extends React.Component {
     let {createEvent, currentUser, month} = this.props;
     createEvent({event: {user_id: parseInt(currentUser.id), month_id: parseInt(month.id),
       day_id: parseInt(this.state.selectedDay), description: this.state.description, start_time: this.state.startTime, end_time: this.state.endTime
-     }}).then(this.setState({startTime: "", endTime: "", description: "",eventFormOpen: false}))
+    }}).then(() => this.setState({startTime: "", endTime: "", description: "",eventFormOpen: false}),
+    this.setState({eventFormOpen: true})
+  )
   }
 
   updateDescription(e) {
@@ -211,9 +213,30 @@ class CalendarShow extends React.Component {
 
   render() {
     let {month, currentUser, errors} = this.props
+
     let errorString;
     if (!month || !currentUser) {
       return null;
+    }
+
+    let errors_hash = {};
+    for (let i = 0; i < errors.length; i++) {
+      errors_hash[errors[i]] = errors[i]
+    }
+
+    let description_errors;
+    if (errors_hash["Description can't be blank"]) {
+      description_errors = "Description can't be blank";
+    }
+
+    let start_time_errors;
+    if (errors_hash["Start time can't be blank"]) {
+      start_time_errors = "Start time can't be blank";
+    }
+
+    let end_time_errors;
+    if (errors_hash["End time can't be blank"]) {
+      end_time_errors = "End time can't be blank";
     }
 
       let weeks = this.drawCal();
@@ -229,9 +252,25 @@ class CalendarShow extends React.Component {
       if(this.state.eventFormOpen) {
         eventForm = <div className="event-form">
           <h1>Create Event</h1>
-          <input onChange={this.updateDescription}className="description"placeholder="Enter Description"></input>
-          <div className="time"><p>Start</p><input onChange={this.setStartTime} id="time" type="time"></input></div>
-          <div className="time"><p>End</p><input onChange={this.setEndTime} id="time" type="time"></input></div>
+          <div>
+            <input className={errors_hash["Description can't be blank"] ? "description-errors" : "description"}onChange={this.updateDescription}placeholder="Enter Description"></input>
+            <p className="error-messages">{description_errors}</p>
+          </div>
+          <div className={errors_hash["Start time can't be blank"] ? "time-errors" : "time"}>
+            <p>Start</p>
+          <div>
+            <input onChange={this.setStartTime} id="time" type="time"></input>
+            <p className="error-messages">{start_time_errors}</p>
+          </div>
+          </div>
+
+          <div className={errors_hash["End time can't be blank"] ? "time-errors" : "time"}>
+            <p>End</p>
+            <div>
+              <input onChange={this.setEndTime} id="time" type="time"></input>
+              <p className="error-messages">{end_time_errors}</p>
+            </div>
+          </div>
           <div className="create-button"><button onClick={this.createEvent}>Create</button></div>
         </div>
       }

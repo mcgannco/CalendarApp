@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import {RECEIVE_EVENT_ERRORS, RECEIVE_ALL_EVENTS, RECEIVE_SINGLE_EVENTS} from '../actions/session_actions';
+import {RECEIVE_EVENT_ERRORS, RECEIVE_ALL_EVENTS, RECEIVE_SINGLE_EVENTS} from '../actions/event_actions';
 
 const eventsErrorsReducer =  (state = [], action) => {
   Object.freeze(state);
