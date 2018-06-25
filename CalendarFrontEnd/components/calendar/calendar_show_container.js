@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { requestSingleMonth } from '../../actions/calendar_actions';
-import { requestAllEvents, createEvent, deleteEvent, updateEvent } from '../../actions/event_actions';
+import { requestAllEvents, createEvent, deleteEvent, updateEvent, clearEventErrors } from '../../actions/event_actions';
 import { selectAllEvents } from '../../reducers/selectors';
 import CalendarShow from './calendar_show';
 
@@ -11,7 +11,7 @@ const msp = state => {
   } else {
     data = null;
   }
-  
+
   return({
     currentUser: state.entities.users[state.session.id],
     month: state.ui.currentMonth,
@@ -26,7 +26,8 @@ const mdp = dispatch => {
     requestAllEvents: () => dispatch(requestAllEvents()),
     createEvent: (event) => dispatch(createEvent(event)),
     deleteEvent: (eventId) => dispatch(deleteEvent(eventId)),
-    updateEvent: (event) => dispatch(updateEvent(event))
+    updateEvent: (event) => dispatch(updateEvent(event)),
+    clearEventErrors: () => dispatch(clearEventErrors())
   })
 };
 

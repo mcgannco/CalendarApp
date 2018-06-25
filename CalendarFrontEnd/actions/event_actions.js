@@ -3,6 +3,7 @@ export const RECEIVE_ALL_EVENTS  = 'RECEIVE_ALL_EVENTS';
 export const RECEIVE_SINGLE_EVENT  = 'RECEIVE_SINGLE_EVENT';
 export const RECEIVE_EVENT_ERRORS  = 'RECEIVE_EVENT_ERRORS';
 export const REMOVE_EVENT = 'REMOVE_EVENT';
+export const CLEAR_EVENT_ERRORS = 'CLEAR_EVENT_ERRORS';
 
 export const receiveAllEvents = (events) => (
   {
@@ -31,6 +32,12 @@ export const receiveEventErrors = (errors) => (
   {
     type: RECEIVE_EVENT_ERRORS,
     errors
+  }
+);
+
+export const clearEventErrors = () => (
+  {
+    type: CLEAR_EVENT_ERRORS,
   }
 );
 
