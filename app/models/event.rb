@@ -28,7 +28,7 @@ class Event < ApplicationRecord
      end_hours = end_time[0..1].to_i
      end_minutes = end_time[3..-1].to_i
 
-     if Time.new(2018,1,1,1,start_hours,start_minutes, 0) > Time.new(2018,1,1,1,end_hours,end_minutes, 0)
+     if Time.new(2018,month.num,1,day.num,start_hours,start_minutes, 0) > Time.new(2018,month.num,1,day.num,end_hours,end_minutes, 0)
        errors[:base] << 'Start time must come before end time'
      end
    end

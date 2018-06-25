@@ -13,62 +13,62 @@
 
     demoUser = User.create!(username: "DemoUser", password: 123456)
 
-    January = Month.create!(name: "January", num_days: 31, year: 2018)
+    January = Month.create!(name: "January", num_days: 31, year: 2018, num: 1)
     (1..January.num_days).each do |day|
       Day.create!(num: day, month_id: January.id)
     end
 
-    February = Month.create!(name: "February", num_days: 28, year: 2018)
+    February = Month.create!(name: "February", num_days: 28, year: 2018, num: 2)
     (1..February.num_days).each do |day|
       Day.create!(num: day, month_id: February.id)
     end
 
-    March = Month.create!(name: "March", num_days: 30, year: 2018)
+    March = Month.create!(name: "March", num_days: 30, year: 2018, num: 3)
     (1..March.num_days).each do |day|
       Day.create!(num: day, month_id: March.id)
     end
 
-    April = Month.create!(name: "April", num_days: 30, year: 2018)
+    April = Month.create!(name: "April", num_days: 30, year: 2018, num: 4)
     (1..April.num_days).each do |day|
       Day.create!(num: day, month_id: April.id)
     end
 
-    May = Month.create!(name: "May", num_days: 31, year: 2018)
+    May = Month.create!(name: "May", num_days: 31, year: 2018, num: 5)
     (1..May.num_days).each do |day|
       Day.create!(num: day, month_id: May.id)
     end
 
-    June = Month.create!(name: "June", num_days: 30, year: 2018)
+    June = Month.create!(name: "June", num_days: 30, year: 2018, num: 6)
     (1..June.num_days).each do |day|
       Day.create!(num: day, month_id: June.id)
     end
 
-    July = Month.create!(name: "July", num_days: 31, year: 2018)
+    July = Month.create!(name: "July", num_days: 31, year: 2018, num: 7)
     (1..July.num_days).each do |day|
       Day.create!(num: day, month_id: July.id)
     end
 
-    August = Month.create!(name: "August", num_days: 31, year: 2018)
+    August = Month.create!(name: "August", num_days: 31, year: 2018, num: 8)
     (1..August.num_days).each do |day|
       Day.create!(num: day, month_id: August.id)
     end
 
-    September = Month.create!(name: "September", num_days: 30, year: 2018)
+    September = Month.create!(name: "September", num_days: 30, year: 2018, num: 9)
     (1..September.num_days).each do |day|
       Day.create!(num: day, month_id: September.id)
     end
 
-    October = Month.create!(name: "October", num_days: 31, year: 2018)
+    October = Month.create!(name: "October", num_days: 31, year: 2018, num: 10)
     (1..October.num_days).each do |day|
       Day.create!(num: day, month_id: October.id)
     end
 
-    November = Month.create!(name: "November", num_days: 30, year: 2018)
+    November = Month.create!(name: "November", num_days: 30, year: 2018, num: 11)
     (1..November.num_days).each do |day|
       Day.create!(num: day, month_id: November.id)
     end
 
-    December = Month.create!(name: "December", num_days: 31, year: 2018)
+    December = Month.create!(name: "December", num_days: 31, year: 2018, num: 12)
     (1..December.num_days).each do |day|
       Day.create!(num: day, month_id: December.id)
     end
