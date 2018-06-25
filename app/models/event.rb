@@ -23,20 +23,27 @@ class Event < ApplicationRecord
 
   private
    def start_time_before_end_time
-     start_hours = start_time[0..1].to_i
-     start_minutes = start_time[3..-1].to_i
+     if start_time && end_time
+       start_hours = start_time[0..1].to_i
+       start_minutes = start_time[3..-1].to_i
 
-     end_hours = end_time[0..1].to_i
-     end_minutes = end_time[3..-1].to_i
-
-     if Time.new(2018,month.num,1,day.num,start_hours,start_minutes, 0) > Time.new(2018,month.num,1,day.num,end_hours,end_minutes, 0)
-       errors[:base] << 'Start time must come before end time'
+       end_hours = end_time[0..1].to_i
+       end_minutes = end_time[3..-1].to_i
      end
+
+     if self.month && self.day
+       if Time.new(2018,month.num,1,day.num,start_hours,start_minutes, 0) > Time.new(2018,month.num,1,day.num,end_hours,end_minutes, 0)
+         errors[:base] << 'Start time must come before end time'
+       end
+   end
+
    end
 
    def max_event_per_day_quota
-     if self.day.events.length > 9
-       errors[:base] << 'Max events per day is 10'
+     if self.day
+       if self.day.events.length > 9
+         errors[:base] << 'Max events per day is 10'
+       end
      end
    end
 
