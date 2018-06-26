@@ -1,5 +1,5 @@
 # Calendar App
-A 2018 calendar implementation that allows you to create, update and delete events (Live version [here](http://soundtown.herokuapp.com/#/)).
+A 2018 calendar implementation that allows you to create, update and delete events (Live version [here](https://calendar2018.herokuapp.com/)).
 
 # Functionality
 ## User Auth
@@ -20,7 +20,7 @@ A 2018 calendar implementation that allows you to create, update and delete even
   * Click Calendar 2018 Header to return to year view
 
 ## Day View
-  * View each event for the day
+  * View / scroll through all event for the day
   * Open event form to create new event
   * Click icons to delete / update events
   * Click Calendar 2018 Header to return to year view
