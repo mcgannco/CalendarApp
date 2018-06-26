@@ -8,8 +8,8 @@ Live version [here](http://soundtown.herokuapp.com/#/).
 
 # Front End Specs
  - [x] The UI should have one month hard coded view (Pick any month)
- - [] The UI should have one month hard coded view (Pick any month)
- - [] Ignore users/login, just have one hardcoded user
+ - [ ] The UI should have one month hard coded view (Pick any month)
+ - [ ] Ignore users/login, just have one hardcoded user
 
  Click on a day box, and be able to create a new event on that day which gets sent to the backend on clicking submit.
  ◦The form should have start time, end time, description and submit.
