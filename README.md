@@ -5,8 +5,8 @@ A 2018 calendar implementation that allows you to create, update and delete even
 Live version [here](http://soundtown.herokuapp.com/#/).
 
 # Functionality
+## User Auth
 ![Optional Text](./app/assets/images/auth.png)
-* User Auth
   * Signup / Signin to view your calendar
   * Or use demo to signin as a demo user
 
