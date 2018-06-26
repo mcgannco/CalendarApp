@@ -1,8 +1,6 @@
 # Calendar App
-
 A 2018 calendar implementation that allows you to create, update and delete events
 Live version [here](http://soundtown.herokuapp.com/#/).
-![Optional Text](./app/assets/images/home.png)
 
 # Functionality
 ## User Auth
@@ -23,16 +21,16 @@ Live version [here](http://soundtown.herokuapp.com/#/).
   * Click Calendar 2018 Header to return to year view
 
 ## Day View
-    * View each event for the day
-    * Open event form to create new event
-    * Click icons to delete / update events
-    * Click Calendar 2018 Header to return to year view
+  * View each event for the day
+  * Open event form to create new event
+  * Click icons to delete / update events
+  * Click Calendar 2018 Header to return to year view
 
 ## Create / Update Event
 ![Optional Text](./app/assets/images/edit.png)
-    * Validations for presence of description, start time and end time
-    * No invalid time ranges (end time before start time)
-    * Maximum 10 events per day
+  * Validations for presence of description, start time and end time
+  * No invalid time ranges (end time before start time)
+  * Maximum 10 events per day
 
 # Front End Specs
  - [x] The UI should have one month hard coded view (Pick any month)
@@ -67,24 +65,35 @@ Live version [here](http://soundtown.herokuapp.com/#/).
 
 - [x] PUT /events/:id
   * Should update an existing event
-
+  
 # Key Code Snippets:
-```javascript
-componentDidMount() {
-  this.props.searchSongs(this.state.inputVal);
-}
+* Avoid invalid time ranges
+```ruby
+def start_time_before_end_time
+  if start_time && end_time
+    start_hours = start_time[0..1].to_i
+    start_minutes = start_time[3..-1].to_i
 
-handleInput(event) {
- this.setState({inputVal: event.currentTarget.value});
-}
+    end_hours = end_time[0..1].to_i
+    end_minutes = end_time[3..-1].to_i
+  end
+
+  if self.month && self.day
+    if Time.new(2018,month.num,1,day.num,start_hours,start_minutes, 0) > Time.new(2018,month.num,1,day.num,end_hours,end_minutes, 0)
+      errors[:base] << 'Start time must come before end time'
+    end
+end
 ```
-
-```javascript
-{ currentSong:
- { song: {id: 23, user_id: 5, title: "SongTitle", etc...}
-   isPlaying: False
- }
-}
+* Limit events per day
+```ruby
+def max_event_per_day_quota
+  if self.day
+    if self.day.events.length > 9
+      errors[:base] << 'Max events per day is 10'
+    end
+  end
+end
 ```
 
 # Tests:
+Includes both model and controller testing for validations, associations and api calls.  To runs tests, simply install and run rspec
