@@ -1,14 +1,14 @@
 # Calendar App
 
-A 2018 Calendar implementation that allows you to create, update and delete events
+A 2018 calendar implementation that allows you to create, update and delete events
 
 Live version [here](http://soundtown.herokuapp.com/#/).
 
 # Functionality
 
 # Front End Specs
-•The UI should have one month hard coded view (Pick any month)
-•Ignore users/login, just have one hardcoded user
+ - [x] The UI should have one month hard coded view (Pick any month)
+ - [] Ignore users/login, just have one hardcoded user
 •Click on a day box, and be able to create a new event on that day which gets sent to the backend on clicking submit.
  ◦The form should have start time, end time, description and submit.
  ◦Once submit is clicked the form should disappear.
