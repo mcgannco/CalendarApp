@@ -46,6 +46,7 @@ export const requestAllEvents = () => dispatch => (
 )
 
 export const createEvent = event => dispatch => {
+  debugger
   return(
     APIUtil.createEvent(event).then(event => dispatch(receiveSingleEvent(event)),
   err => dispatch(receiveEventErrors(err.responseJSON))));
