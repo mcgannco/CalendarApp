@@ -15,7 +15,9 @@ RSpec.describe Api::EventsController, :type => :controller do
 
   describe "GET /events" do
     it 'should return all events' do
-
+      get 'api/events'
+      json = JSON.parse(response.body)
+      debugger
     end
   end
 
