@@ -65,7 +65,7 @@ Live version [here](http://soundtown.herokuapp.com/#/).
 
 - [x] PUT /events/:id
   * Should update an existing event
-  
+
 # Key Code Snippets:
 * Avoid invalid time ranges
 ```ruby
@@ -96,4 +96,4 @@ end
 ```
 
 # Tests:
-Includes both model and controller testing for validations, associations and api calls.  To runs tests, simply install and run rspec
+Includes both model and controller testing for validations, associations and api calls.  To runs tests, simply install and run rspec.
