@@ -7,10 +7,10 @@
 #  month_id    :integer          not null
 #  day_id      :integer          not null
 #  description :text             not null
-#  start_time  :time             not null
-#  end_time    :time             not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  start_time  :string           not null
+#  end_time    :string           not null
 #
 
 class Event < ApplicationRecord

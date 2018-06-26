@@ -8,6 +8,7 @@
 #  year       :integer          not null
 #  num_days   :integer          not null
 #  name       :string           not null
+#  num        :integer          not null
 #
 
 require 'test_helper'

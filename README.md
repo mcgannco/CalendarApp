@@ -1,7 +1,5 @@
 # Calendar App
-A 2018 calendar implementation that allows you to create, update and delete events
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-Live version [here](http://soundtown.herokuapp.com/#/).
+A 2018 calendar implementation that allows you to create, update and delete events (Live version [here](http://soundtown.herokuapp.com/#/)).
 
 # Functionality
 ## User Auth
