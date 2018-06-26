@@ -44,6 +44,8 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
     arel (8.0.0)
+    assert_json (0.4.1)
+      activesupport
     bcrypt (3.1.12)
     better_errors (2.4.0)
       coderay (>= 1.0.0)
@@ -223,6 +225,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  assert_json
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller

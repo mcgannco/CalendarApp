@@ -1,4 +1,5 @@
 require 'rails_helper'
+include AssertJson
 
 begin
   Api::EventsController
@@ -14,22 +15,11 @@ RSpec.describe Api::EventsController, :type => :controller do
   end
 
   describe "GET /events" do
+    before do
+      get :index, :format => 'json'
+    end
     it 'should return all events' do
-      get 'api/events'
-      json = JSON.parse(response.body)
-      debugger
-    end
-  end
-
-  describe "DELETE/events/:id" do
-    it 'should should delete an event' do
-
-    end
-  end
-
-  describe "PUT/events/:id" do
-    it 'should update an existing event' do
-
+      expect(response).to have_http_status(:success)
     end
   end
 end

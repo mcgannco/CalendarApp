@@ -49,6 +49,7 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'faker'
   gem 'launchy'
+  gem 'assert_json'
 end
 
 group :development do
