@@ -8,21 +8,24 @@ Live version [here](http://soundtown.herokuapp.com/#/).
 
 # Front End Specs
  - [x] The UI should have one month hard coded view (Pick any month)
- - [ ] The UI should have one month hard coded view (Pick any month)
- - [ ] Ignore users/login, just have one hardcoded user
-
- Click on a day box, and be able to create a new event on that day which gets sent to the backend on clicking submit.
- ◦The form should have start time, end time, description and submit.
- ◦Once submit is clicked the form should disappear.
- ◦Event should now appear in that day’s box.
- ◦Events cannot span multiple days. Must start and end the same day.
-•Show all events the user has on their calendar.
-•The UI should have 4 rows of 7 boxes (simple case of a 28 day month).
-•The application should communicate with an API backend using JSON. Don’t spend a lot of time on the UI making it look beautiful; just make it functional.can comment on any track, and delete and of their own comments on any given track
+ - [x] Ignore users/login, just have one hardcoded user
+ - [x] Click on a day box, and be able to create a new event on that day which gets sent to the backend on clicking submit
+ ⋅⋅* The form should have start time, end time, description and submit
+ ⋅⋅* Once submit is clicked the form should disappear
+ ⋅⋅* Event should now appear in that day’s box
+ ⋅⋅* Events cannot span multiple days. Must start and end the same day
+ - [x] Show all events the user has on their calendar
+ - [x] The UI should have 4 rows of 7 boxes (simple case of a 28 day month)
+ - [x] The application should communicate with an API backend using JSON. Don’t spend a lot of time on the UI making it look beautiful; just make it functional
 
 # Front End Specs (Optional):
-![Optional Text](./app/assets/images/cal.png)
-The app features two different audio playing React components, the audio footer playbar and the album cover player.  The audio footer player is present on every page, which allows for continuous audio playback, and is which built off of HTML 5s audio tag. The audio player is built in sync with other custom built audio players throughout the site by transferring the audio's play / pause state through the redux state.  The audio element associated with the audio footer is updated through the global slice of state for play, pause, a change in the point of the song, and volume.
+- [x] Switch between months
+- [x] Week or day view
+- [ ] Handle events spanning multiple days
+- [x] Handle too many events to fit in your box UI on a given day
+- [x] You should be able to update/delete events. How you implement this UX is up to you
+- [x] The UI should have 5 rows of 7 boxes with the correct date on the correct days
+
 
 ```javascript
 { currentSong:
