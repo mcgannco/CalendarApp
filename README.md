@@ -1,8 +1,8 @@
 # Calendar App
 
 A 2018 calendar implementation that allows you to create, update and delete events
-
 Live version [here](http://soundtown.herokuapp.com/#/).
+![Optional Text](./app/assets/images/home.png)
 
 # Functionality
 ## User Auth
@@ -10,9 +10,29 @@ Live version [here](http://soundtown.herokuapp.com/#/).
   * Signup / Signin to view your calendar
   * Or use demo to signin as a demo user
 
-* View year calendar
-  * click individual month to get month view
-  * hover over individual days to get the day event count
+## Year View
+  * Click individual month to get month view
+  * Hover over individual days to get the day event count
+  * Days with events highlighted red
+
+## Month View
+![Optional Text](./app/assets/images/hover.png)
+  * Click individual day to get day view / days events
+  * Days with events highlighted red
+  * Hover over individual days to get the day event count
+  * Click Calendar 2018 Header to return to year view
+
+## Day View
+    * View each event for the day
+    * Open event form to create new event
+    * Click icons to delete / update events
+    * Click Calendar 2018 Header to return to year view
+
+## Create / Update Event
+![Optional Text](./app/assets/images/edit.png)
+    * Validations for presence of description, start time and end time
+    * No invalid time ranges (end time before start time)
+    * Maximum 10 events per day
 
 # Front End Specs
  - [x] The UI should have one month hard coded view (Pick any month)
@@ -33,15 +53,6 @@ Live version [here](http://soundtown.herokuapp.com/#/).
 - [x] Handle too many events to fit in your box UI on a given day
 - [x] You should be able to update/delete events. How you implement this UX is up to you
 - [x] The UI should have 5 rows of 7 boxes with the correct date on the correct days
-
-
-```javascript
-{ currentSong:
- { song: {id: 23, user_id: 5, title: "SongTitle", etc...}
-   isPlaying: False
- }
-}
-```
 
 # Back End Specs (Minimum Required API):
 - [x] POST /events
@@ -65,6 +76,14 @@ componentDidMount() {
 
 handleInput(event) {
  this.setState({inputVal: event.currentTarget.value});
+}
+```
+
+```javascript
+{ currentSong:
+ { song: {id: 23, user_id: 5, title: "SongTitle", etc...}
+   isPlaying: False
+ }
 }
 ```
 
