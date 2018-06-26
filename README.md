@@ -5,6 +5,14 @@ A 2018 calendar implementation that allows you to create, update and delete even
 Live version [here](http://soundtown.herokuapp.com/#/).
 
 # Functionality
+![Optional Text](./app/assets/images/auth.png)
+* User Auth
+  * Signup / Signin to view your calendar
+  * Or use demo to signin as a demo user
+
+* View year calendar
+  * click individual month to get month view
+  * hover over individual days to get the day event count
 
 # Front End Specs
  - [x] The UI should have one month hard coded view (Pick any month)
@@ -36,13 +44,20 @@ Live version [here](http://soundtown.herokuapp.com/#/).
 ```
 
 # Back End Specs (Minimum Required API):
-![Optional Text](./app/assets/images/cal.png)
-User have the ability to comment on any songs uploaded to SoundTown, as well as delete any comment that they write.  Comments are associated with the song they belong to and are rendered on each song show page in descending order
+- [x] POST /events
+  * Should create an event
+
+- [x] GET /events
+  * Should return all events
 
 # Back End Specs (Optional):
-![Optional Text](./app/assets/images/cal.png)
-User have the ability to search for songs through a dynamic search bar.  When users type into the search bar, the SearchBar React component input value state is set to the letters typed by the users.  Subsequently, an AJAX request is fired off with the given search criteria, and returns all songs that meet the input values given by the user.
+- [x] DELETE /events/:id
+  * Should delete an event
 
+- [x] PUT /events/:id
+  * Should update an existing event
+
+# Key Code Snippets:
 ```javascript
 componentDidMount() {
   this.props.searchSongs(this.state.inputVal);
@@ -52,3 +67,5 @@ handleInput(event) {
  this.setState({inputVal: event.currentTarget.value});
 }
 ```
+
+# Tests:
