@@ -4,15 +4,15 @@ import Root from './components/root'
 import configureStore from './store/store';
 
 // testing
-import { signup, login, logout } from './actions/session_actions';
-import { requestAllMonths, requestSingleMonth } from './actions/calendar_actions';
-import { requestAllEvents } from './actions/event_actions';
-window.signup = signup;
-window.login = login;
-window.logout = logout;
-window.requestAllMonths = requestAllMonths;
-window.requestSingleMonth = requestSingleMonth;
-window.requestAllEvents = requestAllEvents;
+// import { signup, login, logout } from './actions/session_actions';
+// import { requestAllMonths, requestSingleMonth } from './actions/calendar_actions';
+// import { requestAllEvents } from './actions/event_actions';
+// window.signup = signup;
+// window.login = login;
+// window.logout = logout;
+// window.requestAllMonths = requestAllMonths;
+// window.requestSingleMonth = requestSingleMonth;
+// window.requestAllEvents = requestAllEvents;
 //
 
 
